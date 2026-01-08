@@ -1,14 +1,12 @@
 #include <iostream>
 using namespace std;
 
-// Definition of a BST node
 struct Node {
     int data;
     Node* left;
     Node* right;
 };
 
-// Function to create a new node
 Node* createNode(int value) {
     Node* newNode = new Node();
     newNode->data = value;
@@ -17,7 +15,7 @@ Node* createNode(int value) {
     return newNode;
 }
 
-// Function to insert a value into BST
+
 Node* insert(Node* root, int value) {
     if (root == nullptr) {
         return createNode(value);
@@ -28,11 +26,9 @@ Node* insert(Node* root, int value) {
     } else if (value > root->data) {
         root->right = insert(root->right, value);
     }
-    // Duplicate values are ignored
     return root;
 }
 
-// Inorder traversal (Left, Root, Right)
 void inorder(Node* root) {
     if (root != nullptr) {
         inorder(root->left);
