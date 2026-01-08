@@ -4,12 +4,11 @@
 
 using namespace std;
 
-// Structure to represent an edge
 struct Edge {
     int u, v, weight;
 };
 
-// Disjoint Set Union (Union-Find)
+
 class DisjointSet {
 private:
     vector<int> parent, rank;
@@ -22,14 +21,14 @@ public:
             parent[i] = i;
     }
 
-    // Find with path compression
+    
     int find(int x) {
         if (parent[x] != x)
             parent[x] = find(parent[x]);
         return parent[x];
     }
 
-    // Union by rank
+
     bool unite(int x, int y) {
         int rootX = find(x);
         int rootY = find(y);
@@ -49,7 +48,6 @@ public:
     }
 };
 
-// Kruskal's Algorithm
 void kruskal(int V, vector<Edge>& edges) {
     // Sort edges by weight
     sort(edges.begin(), edges.end(),
